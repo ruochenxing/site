@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="main-items col-md-12">
+        <a href="{{ url_for('web.zhihu') }}"> 返回列表</a>&nbsp;|&nbsp;<a target="_blank" href="https://www.zhihu.com/question/{{ question['_id'] }}">前往知乎</a>
+    </div>
+    <div class="main-items col-md-12">
+        <div class="zh-qu-title">
+            {{question['title']}}
+            <span class="subtitle">
+                ( 
+                <span class="glyphicon glyphicon-sunglasses"></span> {{ question['follow_cnt'] }} 人关注 |
+                <span class="glyphicon glyphicon-picture"></span> {{ question['answers']|length }}个带图回答 
+                )
+            </span>
+            <span class="subtitle">
+                {% for topic in question['topics'] %}
+                {# {% if loop.index != 1 %}|{% endif %} #}
+                <a class="a-topic" target="_blank" href="{{ topic['link'] }}">
+                    {{ topic['topic'] }}
+                </a>
+                {% endfor %}
+            </span>
+        </div>
+        <hr>
+        <div class="answers">
+            {% for answer in answers %}
+            {% if loop.index != 1 %}<hr>{% endif %}
+            <div class="answer-item clearfix">
+                <div>
+                <a target="{% if answer['a_link'] %}_blank{% endif %}" href="{{ answer['a_link'] }}">{{ answer['a_name'] }}</a>
+                的回答（<a target="_blank" href="{{ answer['url'] }}">阅读原文</a>）
+                </div>
+                <div class="img-wrap-div">
+                    {% for img in answer['imgs'] %}
+                    <div class="col-md-self-2">
+                        {% if view_in_qn %}
+                          <img class="img-view" src="{{ prefix_url }}/{{ img }}">
+                        {% else %}
+                          <img class="img-view" src="{{ url_for('api.download', hashid=img) }}">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="center_div">
+        {{ pagination.links }}
+    </div>
+    <hr>
+    <div class="ds-thread" data-thread-key="{{ question['_id'] }}" data-title="{{ title }} - 图看知乎" data-url="{{root}}/zhihu/detail/{{ question['_id'] }}"></div>
+
+</div>
+{% endblock %}

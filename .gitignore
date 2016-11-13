@@ -1,0 +1,8 @@
+log/
+*/*.pyc
+*/**/*.pyc
+data/
+crawler/ip.txt
+/log
+crawler/log
+site.pyc

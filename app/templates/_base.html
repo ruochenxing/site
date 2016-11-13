@@ -1,0 +1,64 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+<head>
+    {%- block head %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="VIEWPORT" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='imgs/ico_128.ico') }}"/>
+    <link rel="Shortcut Icon" href="{{ url_for('static', filename='imgs/ico_128.ico') }}"/>
+    <link rel="Bootmark" href="{{ url_for('static', filename='imgs/ico_128.ico') }}"/>
+    <meta name="keywords" content="带逛网,知乎带逛,豆瓣带逛,知乎,豆瓣,带逛"/>
+    <meta name="description" content="带逛网 www.daiguangwang.top 为你刷选最优质的内容"/>
+    <title>{% block title %}{% endblock title %}</title>
+
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- endblock metas %}
+
+    {%- block styles %}
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    {%- endblock styles %}
+    {%- endblock head %}
+</head>
+<body{% block body_attribs %}{% endblock body_attribs %}>
+{% block body -%}
+{% block navbar %}
+{%- endblock navbar %}
+{% block content -%}
+{%- endblock content %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+{%- endblock scripts %}
+{%- endblock body %}
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ruochenxing"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?94701aa1296b98c3338c52982b30d73f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

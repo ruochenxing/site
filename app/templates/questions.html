@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="page-header" style="margin-top: -10px;">
+        <h3>{{ title }}</h3>
+    </div>
+
+    <div class="main-items col-md-12">
+        {% for question in questions %}
+        {% if loop.index != 1 %}
+        <hr>
+        {% endif %}
+        <div class="zh-question-item clearfix">
+            <div class="zh-qu-title">
+                <a href="https://www.zhihu.com/question/{{ question['_id'] }}" target="_blank">{{ question['name'] }}</a>
+                <span class="subtitle">
+                        ( 
+                        <span class="glyphicon glyphicon-sunglasses"></span> 
+                        {{ question['focus'] }} 人关注 |
+                        <span class="glyphicon glyphicon-pencil"></span> 
+                        {{ question['answer'] }} 个回答 |
+                        <span class="glyphicon glyphicon-thumbs-up"></span> 
+                        最高点赞数 {{ question['topAnswerNum'] }}
+                        )
+                </span>
+            </div>
+            <div class="img-wrap-div">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="center_div">
+        {{ pagination.links }}
+    </div>
+
+</div>
+{% endblock %}

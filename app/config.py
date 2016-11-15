@@ -14,14 +14,7 @@ TOPIC_COLL = 'topics'
 HOT_QUESTION_COLL = 'hot_questions'
 
 
-<<<<<<< HEAD
 WEB_ROOT = "www.daiguangwang.top"
 
 USE_QN = True
 VIEW_IN_QN = True
-=======
-WEB_ROOT = "127.0.0.1"
-
-USE_QN = False
-VIEW_IN_QN = False
->>>>>>> e0b390d2f3982b0777397cb9aa8646138170a8a2

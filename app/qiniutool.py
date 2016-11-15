@@ -10,10 +10,6 @@ QN_SK = ''
 QN_BUCKET_NAME = ''
 
 PREFIX_QN = ''
-<<<<<<< HEAD
-=======
-
->>>>>>> e0b390d2f3982b0777397cb9aa8646138170a8a2
 # 构建鉴权对象
 q = Auth(QN_AK, QN_SK)
 IMAGE_PATH = FILE_PATH

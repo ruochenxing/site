@@ -35,12 +35,6 @@ def queryhotquestion(time_now, page=1, pagesize=50):
 
 
 def querylikequestion(nowtime, page=1, pagesize=50):
-<<<<<<< HEAD
 	after_add_time = nowtime - 24 * 3600 * 14  # 14天内添加的
 	data1 = select(HOT_QUESTION_COLL, ft={"focus": {"$gt": 100}, "addTime": {"$gt": after_add_time}}, limit=pagesize, skip=(page - 1) * pagesize, sort=("answer", ASCENDING))
-=======
-	before_last_visit_time = nowtime  # - 12 * 3600  # 12小时未访问
-	after_add_time = nowtime - 24 * 3600 * 14  # 14天内添加的
-	data1 = select(HOT_QUESTION_COLL, ft={"focus": {"$gt": 100}, "updateTime": {"$lt": before_last_visit_time}, "addTime": {"$gt": after_add_time}}, limit=pagesize, skip=(page - 1) * pagesize, sort=("answer", ASCENDING))
->>>>>>> e0b390d2f3982b0777397cb9aa8646138170a8a2
 	return data1

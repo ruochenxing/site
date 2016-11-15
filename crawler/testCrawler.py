@@ -28,7 +28,6 @@ def topiccrawler():
 		TopicCrawler(topic).run()
 		pause(5)
 
-
 ######################################
 
 # 以下方法无需cookie

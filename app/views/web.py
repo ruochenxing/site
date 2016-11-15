@@ -103,6 +103,7 @@ def hot_questions(page=1):
 		'pagination': Pagination(page=page, per_page=HOT_PAGE_SIZE, total=count, css_framework='bootstrap3')
 	}
 	return render_template('questions.html', **data)
+<<<<<<< HEAD
 
 #
 # @web.route("/crawler/question/<linkId>")
@@ -118,3 +119,5 @@ def hot_questions(page=1):
 # 	pageend = int(page) + 1
 # 	collection_crawler = CollectionCrawler(str(linkid), page, pageend)
 # 	collection_crawler.start()
+=======
+>>>>>>> e0b390d2f3982b0777397cb9aa8646138170a8a2
